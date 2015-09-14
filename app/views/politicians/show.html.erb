@@ -14,18 +14,27 @@
                 <td><strong>Location:</strong></td>
                 <td><%= @politician.location %></td>
               </tr>
-              <tr>
-                <td><strong>Rating( ? / 5 ):</strong></td>
-                <td><%= @politician.rating %></td>
-              </tr>
             </tbody>
           </table>
+          <%= link_to "Write a Review", new_politician_review_path(@politician) %>
         </div>
       </div>
       <div class="col-md-7 col-md-offset-1">
         <h1 class="review_title"><%= @politician.name %></h1>
-        <p><%= @politician.location %></p>
+        <p><%= @politician.name %></p>
 
+        <% if @reviews.blank? %>
+          <h3>No reviews just yet, would you like to add the first!</h3>
+          <%= link_to "Write Review", new_politician_review_path(@politician), class: "btn btn-danger" %>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <div class="reviews">
+              <div class="star-rating" data-score= <%= review.rating %> ></div>
+              <p><%= review.rating %></p>
+              <p><%= review.comment %></p>
+            </div>
+            <% end %>
+            <% end %>
       </div>
     </div>
   </div>

@@ -11,6 +11,7 @@ class PoliticiansController < ApplicationController
   # GET /politicians/1
   # GET /politicians/1.json
   def show
+    @reviews = Review.where(politician_id: @politician.id).order("created_at DESC")
   end
 
   # GET /politicians/new

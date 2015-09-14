@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
-  resources :reviews
+  
   devise_for :users
-  resources :politicians
+  
+  resources :politicians do
+    resources :reviews, except: [:show, :index]
+  end
   
   root 'politicians#index'
 end
