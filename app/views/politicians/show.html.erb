@@ -1,19 +1,35 @@
-<%= image_tag @politician.image.url(:medium) %>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-4">
+        <%= image_tag @politician.image.url(:medium) %>
+        <div class="table-responsive">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td><strong>Name:</strong></td>
+                <td><%= @politician.name %></td>
+              </tr>
+              <tr>
+                <td><strong>Location:</strong></td>
+                <td><%= @politician.location %></td>
+              </tr>
+              <tr>
+                <td><strong>Rating( ? / 5 ):</strong></td>
+                <td><%= @politician.rating %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-7 col-md-offset-1">
+        <h1 class="review_title"><%= @politician.name %></h1>
+        <p><%= @politician.location %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @politician.name %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @politician.location %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @politician.rating %>
-</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_politician_path(@politician) %> |
 <%= link_to 'Back', politicians_path %>
