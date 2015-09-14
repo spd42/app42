@@ -15,6 +15,7 @@
   <tbody>
     <% @politicians.each do |politician| %>
       <tr>
+        <td><%= image_tag politician.image.url(:medium) %></td>
         <td><%= politician.name %></td>
         <td><%= politician.location %></td>
         <td><%= politician.rating %></td>

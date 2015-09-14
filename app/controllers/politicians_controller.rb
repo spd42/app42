@@ -70,6 +70,6 @@ class PoliticiansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def politician_params
-      params.require(:politician).permit(:name, :location, :rating)
+      params.require(:politician).permit(:name, :location, :rating, :image)
     end
 end
